@@ -58,23 +58,57 @@ Using the command ``switch-phpfarm``, you can make one of the installed
 PHP versions the default one that gets run when just typing ``php``::
 
     $ switch-phpfarm
-    Switch the currently active PHP version of phpfarm
-    Available versions:
-    * 5.2.17
-      5.3.16
-      5.4.6
-    $ switch-phpfarm 5.4.6
-    Setting active PHP version to 5.4.6
-    PHP 5.4.6 (cli) (built: Sep 13 2012 11:24:56) (DEBUG)
+    Switch the currently active PHP version
+    -Available system version:
+      5.5.3-1ubuntu2 (cli) (built: Oct 9 2013 14:49:12)
+    -Available phpfarm versions:
+    * 5.3.27
+      5.4.22
+    $
+    $ switch-phpfarm 5.2.17
+    PHP version 5.2.17 is not installed
+    Setting active PHP version to system version
+    PHP 5.5.3-1ubuntu2 (cli) (built: Oct  9 2013 14:49:12)
+    Copyright (c) 1997-2013 The PHP Group
+    Zend Engine v2.5.0, Copyright (c) 1998-2013 Zend Technologies
+    with Zend OPcache v7.0.3-dev, Copyright (c) 1999-2013, by Zend Technologies
+    $
+    $ switch-phpfarm
+    Switch the currently active PHP version
+    -Available system version:
+    * 5.5.3-1ubuntu2 (cli) (built: Oct 9 2013 14:49:12)
+    -Available phpfarm versions:
+      5.3.27
+      5.4.22
+      $ switch-phpfarm 5.4.22
+    Setting active PHP version to 5.4.22
+    PHP 5.4.22 (cli) (built: Nov 17 2013 22:26:17)
+    $
     $ switch-phpfarm
     Switch the currently active PHP version of phpfarm
-    Available versions:
-      5.2.17
-      5.3.16
-    * 5.4.6
+    -Available system version:
+    5.5.3-1ubuntu2 (cli) (built: Oct 9 2013 14:49:12)
+    -Available phpfarm versions:
+      5.3.27
+    * 5.4.22
+    $
+    $ switch-phpfarm system
+    Setting active PHP version to system version
+    PHP 5.5.3-1ubuntu2 (cli) (built: Oct  9 2013 14:49:12) 
+    Copyright (c) 1997-2013 The PHP Group
+    Zend Engine v2.5.0, Copyright (c) 1998-2013 Zend Technologies
+    with Zend OPcache v7.0.3-dev, Copyright (c) 1999-2013, by Zend Technologies
 
-You need to have ``inst/current-bin`` in your ``$PATH`` to make this work.
-See `Setup`_ for more information on how to configure your ``$PATH``.
+If no ``php`` is installed on the system, only versions installed with phpfarm are available::
+
+    $ switch-phpfarm
+    Switch the currently active PHP version
+    -Available phpfarm versions:
+    * 5.3.27
+      5.4.22
+
+
+You need to have ``alias php='~/phpfarm/inst/current/bin/php'`` in your ``.bash_aliases`` to make this work.
 
 
 php.ini customization
