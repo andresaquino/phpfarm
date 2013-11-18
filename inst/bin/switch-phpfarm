@@ -5,9 +5,24 @@ basedir=`pwd`
 binlink="$basedir/current"
 active=`basename $(readlink "$binlink") 2>/dev/null | sed -e 's/^php-//;s/\./\\\\./g'`
 
+activate_system_version (){
+    echo "Setting active PHP version to system version"
+    ln -sfT /usr "$1"
+    php --version
+}
+
 if [ "$1" = "" ]; then
-    echo Switch the currently active PHP version of phpfarm
-    echo Available versions:
+    echo Switch the currently active PHP version
+    command -v /usr/bin/php >/dev/null 2>&1 && {
+        echo -Available system version:
+        if [ $active = 'usr' ] ; then
+            echo -n '* '
+        else
+            echo -n '  '
+        fi
+        echo `/usr/bin/php --version | head -n 1 | sed 's/PHP //'`;
+    }
+    echo -Available phpfarm versions:
     ls -1d php-*|sed -e 's/^php-//' -e 's/^/  /' -e "s/^  \($active\)\$/* \1/"
     exit 1
 fi
@@ -16,10 +31,18 @@ version="$1"
 phpdir="$basedir/php-$version"
 
 if [ ! -d "$phpdir" ]; then
-    echo "PHP version $version is not installed"
-    exit 2
+    if [ $version = 'system' ] ; then
+        activate_system_version $binlink
+    else
+        echo "PHP version $version is not installed"
+        command -v /usr/bin/php >/dev/null 2>&1 && {
+            activate_system_version $binlink
+        }
+        exit 2
+    fi
+else
+    echo Setting active PHP version to $version
+    ln -sfT "$phpdir" "$binlink"
+    $basedir/current/bin/php --version
 fi
 
-echo Setting active PHP version to $version
-ln -sfT "$phpdir" "$binlink"
-$basedir/current/bin/php --version
