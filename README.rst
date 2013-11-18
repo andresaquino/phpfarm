@@ -22,6 +22,11 @@ of the patch.
 If a file cannot be found, try to fetch it manually and put it into
 ``src/bzips/``.
 
+Disclamer
+-----
+This fork is tweaked to work on recent Ubuntu versions ( > 11.10), because this 
+is what we use in our development environements.
+
 
 Setup
 -----
