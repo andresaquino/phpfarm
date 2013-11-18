@@ -347,6 +347,7 @@ About phpfarm
 -------------
 Written by Christian Weiske, cweiske@cweiske.de
 Additional changes by François Poirotte, clicky@erebot.net
+and Jean-François Rioux, jfrioux@mantor.org
 
 Homepage: https://sourceforge.net/p/phpfarm
 
