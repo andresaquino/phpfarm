@@ -23,6 +23,7 @@
 # pyrus/pear2 commands.
 #
 # Author: François Poirotte <clicky@erebot.net>
+# Author: Jean-François Rioux <jfrioux@mantor.org>
 #
 
 basedir="`dirname "$0"`"
