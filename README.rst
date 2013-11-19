@@ -32,8 +32,8 @@ Setup
 -----
 - Check out phpfarm from git:
   ``git clone git://git.code.sf.net/p/phpfarm/code phpfarm``
-- ``cd phpfarm/src/``
-- ``./main.sh 5.3.0``
+- Add ``phpfarm/src`` to your ``$PATH``
+- ``phpfarm 5.3.0``
 - PHP gets installed into ``phpfarm/inst/php-$version/``
 - ``phpfarm/inst/bin/php-$version`` is also executable
   You should add ``inst/bin``, ``inst/current/bin`` and
