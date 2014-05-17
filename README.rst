@@ -27,6 +27,10 @@ Disclamer
 This fork is tweaked to work on recent Ubuntu versions ( > 11.10), because this 
 is what we use in our development environements.
 
+Requirements
+-----
+- gcc
+- libxml2-dev
 
 Setup
 -----
